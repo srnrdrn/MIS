@@ -1,0 +1,73 @@
+# MSSQL TABLO OLUŞTURMA ADIMLARI
+
+1. Adım: 'rehber' adında database oluştur.
+2. Adım: Database'de 'ogrenci' adında tablo oluştur.
+3. Adım: Tabloya 'id, adi, soyadi, yas' kolonlarını ekle.
+4. Adım: 'New Query' diyerek kod yazma sayfası aç.
+
+NOT: id, kendi kendine artacağı için ona değer atamıyoruz.
+
+# INSERT KOMUTU
+
+-Değer girmek için kullanılan komuttur.
+
+INSERT INTO ogrenci (adi, soyadi, yas) VALUES 
+('Ali', ' Avşar', '23'),
+('Ayşe', 'Koca', '24'),
+('Zehra', 'Aydın', '22'),
+('Önder', 'Şahin', '20'),
+('Ceyda', 'Şimşek', '28')
+
+# SELECT KOMUTU
+
+-Değer seçmek için kullanılan komuttur.
+
+SELECT adi, soyadi FROM ogrenci
+(Bu kod adi ve soyadi değerlerini seçer.)
+
+# UPDATE KOMUTU
+
+-Değer güncellemek için kullanılan komuttur. 
+
+UPDATE ogrenci SET adi = 'Zeynep', soyadi = 'Kartal' WHERE adi like 'Zehra' AND soyadi like 'Aydın'
+(Bu kod 'Zehra Aydın' değerini 'Zeynep Kartal' olarak günceller.)
+
+NOT: '=' yerine 'like' kullanılabilir.
+
+# DELETE KOMUTU
+
+- Değer silmek için kullanılan komuttur.
+
+DELETE FROM ogrenci WHERE adi like 'Ali' AND soyadi like 'Avşar'
+(Bu kod Ali Avşar satırını siler.)
+
+#A İLE BAŞLAYAN DEĞERLERİ SEÇME
+
+SELECT*FROM ogrenci WHERE adi like 'A%'
+(Bu kod adı A harfi ile başlayanları seçmek için kullanılır.)
+
+#A İLE BİTEN DEĞERLERİ SEÇME
+
+SELECT*FROM ogrenci WHERE adi like '%A'
+(Bu kod adı A harfi ile bitenleri seçmek için kullanılır.)
+
+#ORTASINDA A HARFİ OLAN DEĞERLERİ SEÇME
+
+SELECT*FROM ogrenci WHERE adi like '%A%'
+(Bu kod adının ortasında A harfi olanları seçmek için kullanılır.)
+
+# OR KULLANIMI 
+
+SELECT*FROM ogrenci WHERE adi like 'Z%' OR yas like '22'
+(Bu kod adı Z ile başlayanları YA DA yaşı 22 olanları seçmek için kullanılır.)
+
+# AND KULLANIMI
+
+SELECT*FROM ogrenci WHERE adi like 'C%' AND soyadi like '%N'
+(Bu kod adı C ile başlayanları VE soyadı N ile bitenleri seçmek için kullanılır.)
+
+# NOT KULLANIMI
+
+SELECT*FROM ogrenci WHERE soyadi NOT like 'Ş%'  
+(Bu kod soyadı Ş ile başlamayanları seçmek için kullanılır.)
+
